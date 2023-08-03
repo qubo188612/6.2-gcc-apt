@@ -19,15 +19,15 @@ COPY get_qt.sh get_linuxdeploy.sh install_packages.sh	/tmp/
 
 
 # Get Qt binaries with aqt
-RUN chmod a+x/tmp/get_qt.sh
+RUN chmod 777 /tmp/get_qt.sh
 RUN /tmp/get_qt.sh
 
 # Get linuxdeploy and build it
-RUN chmod a+x/tmp/get_linuxdeploy.sh 
+RUN chmod 777 /tmp/get_linuxdeploy.sh 
 RUN /tmp/get_linuxdeploy.sh
 
 # Install the required packages
-RUN chmod a+x/tmp/install_packages.sh
+RUN chmod 777 /tmp/install_packages.sh
 RUN /tmp/install_packages.sh
 
 # Reconfigure locale
