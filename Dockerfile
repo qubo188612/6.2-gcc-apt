@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:20.04 AS deploy
 MAINTAINER State Of The Art <docker@state-of-the-art.io> (@stateoftheartio)
 
 # PIP requirement like "aqtinstall==2.0.5" or url with egg file
