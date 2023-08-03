@@ -15,9 +15,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     QT_GCC=${QT_PATH}/${QT_VERSION}/gcc_64 \
     PATH=${QT_PATH}/Tools/CMake/bin:${QT_PATH}/Tools/Ninja:${QT_PATH}/${QT_VERSION}/gcc_64/bin:$PATH
 
-COPY ./sh/get_qt.sh 		/tmp/
-COPY ./sh/get_linuxdeploy.sh 	/tmp/
-COPY ./sh/install_packages.sh	/tmp/
+COPY get_qt.sh get_linuxdeploy.sh install_packages.sh	/tmp/
 
 
 # Get Qt binaries with aqt
