@@ -22,10 +22,12 @@ RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     wget \
     && rm -rf /var/lib/apt/lists/*
     
-RUN wget https://cmake.org/files/v3.12/cmake-3.12.2-Linux-x86_64.tar.gz \
-    && tar -zxvf cmake-3.12.2-Linux-x86_64.tar.gz \
-    && mv cmake-3.12.2-Linux-x86_64 cmake-3.12.2 \
-    && ln -sf /cmake-3.12.2/bin/* /usr/bin
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.27.1/cmake-3.27.1-linux-x86_64.sh \
+      -q -O /tmp/cmake-install.sh \
+      && chmod u+x /tmp/cmake-install.sh \
+      && mkdir /usr/bin/cmake \
+      && /tmp/cmake-install.sh --skip-license --prefix=/usr/bin/cmake \
+      && rm /tmp/cmake-install.sh
       
 RUN hash -r
 
