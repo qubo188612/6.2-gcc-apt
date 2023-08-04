@@ -19,7 +19,7 @@ echo
 echo '--> Install the required packages to install linuxdeploy'
 echo
 
-apt install -y git libboost-filesystem-dev libboost-regex-dev cimg-dev wget patchelf nlohmann-json3-dev build-essential
+apt install -y git libboost-filesystem-dev libboost-regex-dev cimg-dev wget patchelf nlohmann-json3-dev build-essential cmake
 
 echo
 echo '--> Download & install the linuxdeploy'
