@@ -9,8 +9,6 @@ ARG QT_PATH=/opt/Qt
 
 ARG ADDITIONAL_PACKAGES="sudo git openssh-client ca-certificates build-essential curl python3 locales patchelf"
 
-USER root
-
 ENV DEBIAN_FRONTEND=noninteractive \
     DEBCONF_NONINTERACTIVE_SEEN=true \
     QT_PATH=${QT_PATH} \

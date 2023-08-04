@@ -41,6 +41,9 @@ git clone "$LINUXDEPLOY_QT_GIT" /tmp/linuxdeploy-plugin-qt
 git -C /tmp/linuxdeploy-plugin-qt checkout "$LINUXDEPLOY_QT_COMMIT"
 git -C /tmp/linuxdeploy-plugin-qt submodule update --init --recursive
 
+chmod -R 777 /tmp/linuxdeploy
+chmod -R 777 /tmp/linuxdeploy-plugin-qt
+
 cmake /tmp/linuxdeploy -B /tmp/linuxdeploy-build -G Ninja -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release -DUSE_CCACHE=OFF
 cmake --build /tmp/linuxdeploy-build
 
