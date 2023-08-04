@@ -19,11 +19,18 @@ echo
 echo '--> Install the required packages to install linuxdeploy'
 echo
 
-apt install -y git libboost-filesystem-dev libboost-regex-dev cimg-dev wget patchelf nlohmann-json3-dev build-essential cmake
+apt install -y git libboost-filesystem-dev libboost-regex-dev cimg-dev wget patchelf nlohmann-json3-dev build-essential
 
 echo
 echo '--> Download & install the linuxdeploy'
 echo
+
+wget https://github.com/Kitware/CMake/releases/download/v3.27.1/cmake-3.27.1-linux-x86_64.sh \
+      -q -O /tmp/cmake-install.sh \
+      && chmod u+x /tmp/cmake-install.sh \
+      && mkdir /usr/bin/cmake \
+      && /tmp/cmake-install.sh --skip-license --prefix=/usr/bin/cmake \
+      && rm /tmp/cmake-install.sh
 
 git clone "$LINUXDEPLOY_GIT" /tmp/linuxdeploy
 git -C /tmp/linuxdeploy checkout "$LINUXDEPLOY_COMMIT"
