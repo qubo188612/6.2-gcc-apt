@@ -31,6 +31,8 @@ wget https://github.com/Kitware/CMake/releases/download/v3.27.1/cmake-3.27.1-lin
       && mkdir /usr/bin/cmake \
       && /tmp/cmake-install.sh --skip-license --prefix=/usr/bin/cmake \
       && rm /tmp/cmake-install.sh
+      
+hash -r
 
 git clone "$LINUXDEPLOY_GIT" /tmp/linuxdeploy
 git -C /tmp/linuxdeploy checkout "$LINUXDEPLOY_COMMIT"
