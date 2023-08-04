@@ -19,8 +19,13 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
     && apt-get -y install --no-install-recommends \
-    cmake \
+    wget \
     && rm -rf /var/lib/apt/lists/*
+    
+RUN wget https://cmake.org/files/v3.12/cmake-3.12.2-Linux-x86_64.tar.gz \
+    && tar -zxvf cmake-3.12.2-Linux-x86_64.tar.gz \
+    && mv cmake-3.12.2-Linux-x86_64 cmake-3.12.2 \
+    && ln -sf /cmake-3.12.2/bin/* /usr/bin
       
 RUN hash -r
 
