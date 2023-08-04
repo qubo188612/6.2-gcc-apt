@@ -14,6 +14,15 @@ ENV DEBIAN_FRONTEND=noninteractive \
     QT_PATH=${QT_PATH} \
     QT_GCC=${QT_PATH}/${QT_VERSION}/gcc_64 \
     PATH=${QT_PATH}/Tools/CMake/bin:${QT_PATH}/Tools/Ninja:${QT_PATH}/${QT_VERSION}/gcc_64/bin:$PATH
+    
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.27.1/cmake-3.27.1-linux-x86_64.sh \
+      -q -O /tmp/cmake-install.sh \
+      && chmod u+x /tmp/cmake-install.sh \
+      && mkdir /usr/bin/cmake \
+      && /tmp/cmake-install.sh --skip-license --prefix=/usr/bin/cmake \
+      && rm /tmp/cmake-install.sh
+      
+RUN hash -r
 
 COPY get_qt.sh get_linuxdeploy.sh install_packages.sh	/tmp/
 

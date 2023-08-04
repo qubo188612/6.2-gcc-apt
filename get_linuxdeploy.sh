@@ -25,14 +25,6 @@ echo
 echo '--> Download & install the linuxdeploy'
 echo
 
-wget https://github.com/Kitware/CMake/releases/download/v3.27.1/cmake-3.27.1-linux-x86_64.sh \
-      -q -O /tmp/cmake-install.sh \
-      && chmod u+x /tmp/cmake-install.sh \
-      && mkdir /usr/bin/cmake \
-      && /tmp/cmake-install.sh --skip-license --prefix=/usr/bin/cmake \
-      && rm /tmp/cmake-install.sh
-      
-hash -r
 
 git clone "$LINUXDEPLOY_GIT" /tmp/linuxdeploy
 git -C /tmp/linuxdeploy checkout "$LINUXDEPLOY_COMMIT"
@@ -41,11 +33,11 @@ git clone "$LINUXDEPLOY_QT_GIT" /tmp/linuxdeploy-plugin-qt
 git -C /tmp/linuxdeploy-plugin-qt checkout "$LINUXDEPLOY_QT_COMMIT"
 git -C /tmp/linuxdeploy-plugin-qt submodule update --init --recursive
 
-sudo cmake /tmp/linuxdeploy -B /tmp/linuxdeploy-build -G Ninja -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release -DUSE_CCACHE=OFF
-sudo cmake --build /tmp/linuxdeploy-build
+cmake /tmp/linuxdeploy -B /tmp/linuxdeploy-build -G Ninja -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release -DUSE_CCACHE=OFF
+cmake --build /tmp/linuxdeploy-build
 
-sudo cmake /tmp/linuxdeploy-plugin-qt -B /tmp/linuxdeploy-plugin-qt-build -G Ninja -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release -DUSE_CCACHE=OFF
-sudo cmake --build /tmp/linuxdeploy-plugin-qt-build
+cmake /tmp/linuxdeploy-plugin-qt -B /tmp/linuxdeploy-plugin-qt-build -G Ninja -DCMAKE_INSTALL_PREFIX=/usr/local -DCMAKE_BUILD_TYPE=Release -DUSE_CCACHE=OFF
+cmake --build /tmp/linuxdeploy-plugin-qt-build
 
 mkdir -p /usr/local/bin
 mv /tmp/linuxdeploy-build/bin/linuxdeploy /usr/local/bin
