@@ -33,7 +33,7 @@ jobs:
           target: deploy
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: qubo188612/qt6_2_gcc_apt-tis:deploy
-          cache-from: type=registry,ref=qubo188612/qt6_2_gcc_apt-tis:deploy
+          tags: qubo188612/ros-Qt:latest
+          cache-from: type=registry,ref=qubo188612/ros-Qt:latest
           cache-to: type=inline
 
