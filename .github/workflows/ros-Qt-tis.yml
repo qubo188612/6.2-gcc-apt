@@ -1,5 +1,5 @@
 # For more details, see https://docs.github.com/en/actions
-name: Build qt6_2_gcc_apt-tis images
+name: Build ros-Qt-tis images
 
 # Controls when the workflow will run
 on: workflow_dispatch
