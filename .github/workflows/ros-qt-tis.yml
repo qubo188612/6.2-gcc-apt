@@ -1,5 +1,5 @@
 # For more details, see https://docs.github.com/en/actions
-name: Build ros-Qt-tis images
+name: Build ros-qt-tis images
 
 # Controls when the workflow will run
 on: workflow_dispatch
@@ -33,7 +33,7 @@ jobs:
           target: deploy
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: qubo188612/ros-Qt:latest
-          cache-from: type=registry,ref=qubo188612/ros-Qt:latest
+          tags: qubo188612/ros-qt:latest
+          cache-from: type=registry,ref=qubo188612/ros-qt:latest
           cache-to: type=inline
 
